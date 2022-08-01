@@ -1,32 +1,3 @@
-# 프로젝트 설치 순서
-
-## 1) CRA
-
-1. $ npx create-react-app "(폴더 이름)"
-
-## 2) git 연결
-
-1. github에서 repository 생성  
-   [githyb repository](https://github.com/gueit214)
-2. $ git init
-3. $ git remote add origin (repository주소)
-
-## 3) Firebase 연결
-
-1. Firebase에서 로그인
-   [Firebase](https://firebase.google.com/?hl=ko)
-2. 프로젝트 만들기
-3. firebase init (firebase로그인 & 설치 되어있다는 전제)
-
-- y > Hosting 첫 번째 > use~ > 프로젝트 선택 > 엔터 > n > n > n
-
-4. 로컬환경에서 테스트  
-   $ firebase serve --only hosting
-5. 배포  
-   $ firebase deploy
-
-<br /><br />
-
 # 💸AB(Account Book, 가계부를 적다)
 
 ## 🚀 Hosting URL
