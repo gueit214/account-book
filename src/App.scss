@@ -1,0 +1,44 @@
+// COMMON
+// font-family: 'IBM Plex Sans KR', sans-serif;
+// font-family: 'Nanum Pen Script', cursive;
+
+.Inner {
+  position: relative;
+  width: 1100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+//// Header
+.Header {
+  height: 130px;
+  position: relative;
+  border-bottom: 1px solid rgb(184, 167, 167);
+  font-family: "Nanum Pen Script", cursive;
+  .title {
+    height: 100%;
+    position: absolute;
+    left: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    h1 {
+      font-size: 60px;
+      cursor: pointer;
+    }
+    h2 {
+      font-size: 40px;
+      cursor: pointer;
+    }
+  }
+  .nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

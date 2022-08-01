@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# 프로젝트 설치 순서
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1) CRA
 
-## Available Scripts
+1. $ npx create-react-app "(폴더 이름)"
 
-In the project directory, you can run:
+## 2) git 연결
 
-### `npm start`
+1. github에서 repository 생성  
+   [githyb repository](https://github.com/gueit214)
+2. $ git init
+3. $ git remote add origin (repository주소)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3) Firebase 연결
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Firebase에서 로그인
+   [Firebase](https://firebase.google.com/?hl=ko)
+2. 프로젝트 만들기
+3. firebase init (firebase로그인 & 설치 되어있다는 전제)
 
-### `npm test`
+- y > Hosting 첫 번째 > use~ > 프로젝트 선택 > 엔터 > n > n > n
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. 로컬환경에서 테스트  
+   $ firebase serve --only hosting
+5. 배포  
+   $ firebase deploy
 
-### `npm run build`
+<br /><br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 💸AB(Account Book, 가계부를 적다)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Hosting URL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[AB웹사이트](https://account-book-d2459.web.app/)
 
-### `npm run eject`
+## 🎈 사용 목적 및 소개
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 가계부를 어디에 적어야할지 모르겠다구요? 가계부에 대한 모든 것은 여기에 !!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- ## 💻 Project Structure
+```
+📦 src
+ ┣ 📂 assets
+ ┃ ┣ 📂 css
+``` -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- ## 👜구성
+ -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 👉 개발 기간
 
-## Learn More
+- 2022.08.1 ~
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 프로젝트 주 차별 계획 및 회고
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| 👉 주차 |                            계획                             |    회고    |
+| :-----: | :---------------------------------------------------------: | :--------: |
+| 1 주차  | [:link:](https://github.com/gueit214/account-book/issues/1) | [:link:]() |
 
-### Code Splitting
+## 📚 Project Settings
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 📢 Install npm dependencies
 
-### Analyzing the Bundle Size
+```bash
+> npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 📢 Start dev-server
 
-### Making a Progressive Web App
+```bash
+> npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### 📢 Run tests
 
-### Advanced Configuration
+- Run unit test and e2e test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+> npm test
+```
 
-### Deployment
+- unit test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+> npm run test:unit
+```
 
-### `npm run build` fails to minify
+- Run e2e test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+> npm run test:e2e
+```
+
+#### 📢 Run build project
+
+```bash
+> npm build
+```
+
+#### 📢 Run Lint
+
+```bash
+> npm run lint
+```
+
+#### 📢 Run Coverage
+
+```bash
+> npm run coverage
+```
+
+- 자세한 사항은 `package.json`의 `scripts` 참고
+
+## 📚 Getting start with firebase
+
+- [Firebase](https://firebase.google.com/)
+- [Docs](https://firebase.google.com/docs/cli?hl=ko)
+
+#### 📢 Initial firebase setup
+
+- Install firebase-tools
+
+```bash
+> npm install -g firebase-tools
+```
+
+- Login to firebase
+
+```bash
+> firebase login
+```
+
+- Deploy with firebase hosting
+
+```bash
+> firebase deploy
+```
+
+<!--
+## 🔥 기술 스택 및 사용 라이브러리
+- React
+- Redux, Redux-Toolkit, Redux-Thunk
+- React Router Dom
+- React Helmet
+- React Use
+- Emotion, facepaint, react-responsive
+- Firebase, FireStore
+- Jest, React Testing Library, CodeceptJS
+- Webpack, Eslint, Babel
+- Immer
+- Moment, React-moment
+- draft-js, react-draft-wysiwyg
+- react-content-loader
+
+## 🦄 Demo Image
+
+#### 👉 DeskTop
+
+![desktop-demo]()
+
+#### 👉 Mobile
+
+<img src="" width="600px" > -->
