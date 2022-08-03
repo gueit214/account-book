@@ -1,0 +1,36 @@
+.DiaryCalendar {
+  .Calendar {
+    width: 1000px;
+
+    left: 0;
+    right: 0;
+    top: 20px;
+    position: absolute;
+    margin: auto;
+    .rows {
+      display: flex;
+      .column {
+        flex-grow: 1;
+        height: 110px;
+        width: 100%;
+        background-color: rgb(240, 214, 214);
+        border: 1px solid rgb(190, 174, 174);
+      }
+    }
+    .row--day {
+      .column {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(95, 236, 158);
+      }
+    }
+    .row--date {
+      .column {
+        padding-top: 10px;
+        padding-left: 10px;
+      }
+    }
+  }
+}

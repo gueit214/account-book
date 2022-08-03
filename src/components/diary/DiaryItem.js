@@ -2,17 +2,22 @@ import React from "react";
 const DiaryItem = (props) => {
   const diary = props.diary;
   return (
-    <tbody className="table-light">
-      <tr>
-        <th scope="row">추가</th>
-        <td>{diary.date}</td>
-        <td>{diary.price}</td>
-        <td>{diary.content}</td>
-        <td>{diary.type}</td>
-        <td>{diary.note}</td>
-      </tr>
-    </tbody>
+    <div className="rows row--item">
+      <div className="column col--num">{props.num + 1}</div>
+      <div className="column col--date">{diary.date}</div>
+      <div className="column col--price">{diary.price}</div>
+      <div className="column col--content">{diary.content}</div>
+      <div className="column col--type">{diary.type}</div>
+      <div className="column col--note">{diary.note}</div>
+      <button
+        className="btn btn-outline-danger"
+        onClick={props.handleDeleteButton}
+        id={diary.id}
+      >
+        X
+      </button>
+    </div>
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);

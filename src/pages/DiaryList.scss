@@ -1,5 +1,60 @@
 .DiaryList {
   .DiaryTable {
-    text-align: center;
+    .btn--submit,
+    .span--message {
+      position: absolute;
+      right: 0;
+      top: 50px;
+      width: 80px;
+    }
+    .span--message {
+      color: red;
+    }
+    .AccountTable {
+      .rows {
+        display: flex;
+      }
+      .column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .col--num {
+        width: 50px;
+      }
+      .col--date {
+        width: 160px;
+        text-align: center;
+      }
+      .col--price {
+        width: 120px;
+      }
+      .col--content {
+        width: 200px;
+        text-align: left;
+      }
+      .col--type {
+        width: 130px;
+      }
+      .col--note {
+        flex-grow: 1;
+      }
+      .row--description {
+        height: 50px;
+        background-color: rgb(172, 224, 172);
+        .column {
+          border-right: 1px solid black;
+        }
+      }
+      .row--add,
+      .row--item {
+        height: 40px;
+      }
+      .row--add {
+      }
+      .row--item {
+        border-bottom: 1px solid rgb(173, 148, 148);
+      }
+    }
   }
 }

@@ -1,7 +1,6 @@
 import "./App.scss";
-import Header from "./components/Header";
-import Inner from "./components/Inner";
-import DiaryProvider from "./store/DiaryProvider";
+import Header from "./components/UI/Header";
+import Inner from "./components/UI/Inner";
 
 const App = () => {
   return (

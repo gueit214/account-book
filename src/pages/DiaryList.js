@@ -1,7 +1,7 @@
 import React from "react";
 import DiaryTable from "../components/diary/DiaryTable";
-import Header from "../components/Header";
-import Inner from "../components/Inner";
+import Header from "../components/UI/Header";
+import Inner from "../components/UI/Inner";
 import "./DiaryList.scss";
 
 const DiaryList = () => {
@@ -9,6 +9,8 @@ const DiaryList = () => {
     <div className="DiaryList">
       <Inner>
         <Header />
+      </Inner>
+      <Inner>
         <DiaryTable />
       </Inner>
     </div>
