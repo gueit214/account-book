@@ -1,23 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import DiaryContext from "../../store/diary-context";
-import DiaryProvider from "../../store/DiaryProvider";
+import CalendarDiary from "./CalendarDiary";
 
 const Calendar = () => {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
   // 오늘 날짜 구하기
+  const firstDateOfThisMonth = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    1
+  );
+  const lastDateOfThisMonth = new Date(
+    today.getFullYear(),
+    today.getMonth() + 1,
+    -1
+  );
   const makeCalendar = () => {
-    const firstDateOfThisMonth = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      1
-    );
-    const lastDateOfThisMonth = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      -1
-    );
-
     const firstDayOfThisMonth = firstDateOfThisMonth.getDay();
 
     let calenderArr = new Array(5);
@@ -49,26 +48,20 @@ const Calendar = () => {
 
   const diaryCtx = useContext(DiaryContext);
   const diaryList = diaryCtx.diaryList;
+  /* const [thisMonthDiary.setThisMonthDiary] = useState([]) */
   const thisMonthDiary = diaryList.filter((diary) => {
     return new Date(diary.date).getMonth() === month;
   });
-  console.log(thisMonthDiary);
 
-  const arr = [];
-  for (let diary of thisMonthDiary) {
-    let day = Number(new Date(diary.date).getDate());
-    arr.push({ day: day, type: diary.type });
-  }
-
-  //1일은 index값 0, 2일은 index값 1 ..
-  let diaryArr = new Array(32);
+  let diaryArr = new Array(lastDateOfThisMonth.getDate() + 1);
   for (let i = 0; i < diaryArr.length; i++) {
     diaryArr[i] = new Array(0);
   }
-  /* console.log(diaryArr); */
-  arr.map((diary) => {
-    diaryArr[diary.day].push(diary.type);
+  thisMonthDiary.map((diary) => {
+    diaryArr[Number(new Date(diary.date).getDate())].push(diary);
+    return null;
   });
+
   return (
     <div className="Calendar">
       <div
@@ -85,34 +78,13 @@ const Calendar = () => {
         <div className="column col--sat">목</div>
         <div className="column col--sun">일</div>
       </div>
-      {makeCalendar().map((week, index) => (
-        <div key={Math.random()}>
-          <div className="rows row--date">
-            <div className="column col--1">
-              {week[0]}
-              {diaryArr[index * 7 + 1]}
-            </div>
-            <div className="column col--2">
-              {week[1]}
-              {diaryArr[index * 7 + 2].map((diary) => (
-                <p key={Math.random()}>{diary}</p>
-              ))}
-            </div>
-            <div className="column col--3">
-              {week[2]}
-              {diaryArr[index * 7 + 3].map((diary) => (
-                <p key={Math.random()}>{diary}</p>
-              ))}
-            </div>
-            <div className="column col--4">{week[3]}</div>
-            <div className="column col--5">{week[4]}</div>
-            <div className="column col--6">{week[5]}</div>
-            <div className="column col--7">{week[6]}</div>
-          </div>
-        </div>
-      ))}
+      <CalendarDiary
+        makeCalendar={makeCalendar}
+        diaryArr={diaryArr}
+        thisMonthDiary={thisMonthDiary}
+      />
     </div>
   );
 };
 
-export default Calendar;
+export default React.memo(Calendar);
