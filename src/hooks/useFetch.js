@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
-import DiaryContext from "./diary-context";
+import React, { useCallback, useState } from "react";
 
-const DiaryProvider = (props) => {
+const useFetch = () => {
   const [diaryList, setDiaryList] = useState([]);
   const [error, setError] = useState(null);
 
@@ -38,23 +37,45 @@ const DiaryProvider = (props) => {
     }
   }, []);
 
-  useEffect(() => {
+  const getDiary = useCallback(() => {
     handleDiary({
       type: "GET",
       url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
     });
+    console.log("getDiary 렌더링");
   }, [handleDiary]);
 
-  const contextProp = {
-    handleDiary,
+  const deleteDiary = (id) => {
+    handleDiary({
+      type: "DELETE",
+      url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
+    });
+  };
+
+  const postDiary = (newDiary) => {
+    handleDiary({
+      url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
+      type: "POST",
+      newDiary: newDiary,
+    });
+  };
+
+  const putDiary = (id, thisDiary) => {
+    handleDiary({
+      url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
+      type: "PUT",
+      newDiary: thisDiary,
+    });
+  };
+
+  return {
     diaryList,
     error,
+    getDiary,
+    deleteDiary,
+    postDiary,
+    putDiary,
   };
-  return (
-    <DiaryContext.Provider value={contextProp}>
-      {props.children}
-    </DiaryContext.Provider>
-  );
 };
 
-export default DiaryProvider;
+export default useFetch;

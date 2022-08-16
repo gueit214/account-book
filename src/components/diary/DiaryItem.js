@@ -9,15 +9,17 @@ const DiaryItem = (props) => {
       <div className="column col--content">{diary.content}</div>
       <div className="column col--type">{diary.type}</div>
       <div className="column col--note">{diary.note}</div>
-      <button
-        className="btn btn-outline-danger"
-        onClick={props.handleDeleteButton}
-        id={diary.id}
-      >
-        X
-      </button>
+      <div className="btn-delete">
+        <button
+          className="btn btn-outline-danger"
+          onClick={props.handleDeleteButton}
+          id={diary.id}
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 };
 
-export default React.memo(DiaryItem);
+export default DiaryItem;

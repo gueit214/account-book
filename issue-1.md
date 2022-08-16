@@ -88,17 +88,75 @@ $ npm install node-sass
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> 추가
 ```
 
-## 내부 구성
+# 내부 구성
 
 1. Readme 작성
 2. 구성 요소 계획 짜기
 3. Header 만들기
 4. Diarytable,DiaryItem,AddDiaryItem 내부구성
+5. input 세팅
+6. input 입력 되면 리스트에 추가 (useReducer 활용) -> type="ADD"
+7. Firebase에 데이터 저장 & 가져오기
 
-> ## 2일차
+# 발생한 issue들
 
-## 내부 구성
+## - issue1
 
-1. input 세팅
-2. input 입력 되면 리스트에 추가 (useReducer 활용) -> type="ADD"
-3. Firebase에 데이터 저장 & 가져오기
+```
+렌더링 -> 입력값을 바꿀때는 렌더링 안하고, 제출 할 때만 렌더링
+```
+
+state값을 input value에 연결했기에, state값이 변할때마다 렌더링이됨 => 어쩔 수없음. 매번 안하게 하려면 useref를 이용해야함
+
+## - issue2
+
+```
+삭제버튼 만들기(fetch - DELETE)
+has been blocked by CORS policy: Response to preflight request doesn't pass access control check: It does not have HTTP ok status.
+```
+
+계속 위와 같은 정책 오류 뜸. fetch DELETE in React 계속 알아봤지만 해결이 안 됨.  
+=> GET,POST에서 주소 뒤에 .json붙힌 것을 보고 .json을 주소 뒤에 붙히니 해결
+
+## - issue3
+
+```
+input입력할 때 모든 것이 화면의 모든 것이 리랜더링됨
+```
+
+=> Item 컴포넌트에 React.memo로 해결
+
+## - issue4
+
+```
+일지달력에 해당 날짜를 찾아서 해당 지출이 나오도록 설정
+```
+
+참조한 것
+
+```
+for in문 ; index반환
+for of문 ; 값 반환(python의 for문과 동일)
+```
+
+=> 배열로 만들어서, 어거지로 화면 출력은 성공 but edit를 어떻게 해야할지 감이 안잡힘
+
+## - issue5
+
+```
+fetch에서 수정은 어떻게 ?
+```
+
+ADD ; POST / DELETE ; DELETE가 있음.  
+EDIT ; ??  
+-> 일단 DELETE와 ADD로 만듬  
+-> 매우 비효율적(fetch 너무 많이함)  
+-> 손 볼 필요 있음
+
+## - issue6
+
+```
+EditForm의 Input에 입력을 해도 변화가 안일어남
+```
+
+=> input 속성에 name을 지정하니 해결됨

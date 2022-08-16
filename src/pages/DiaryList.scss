@@ -1,5 +1,18 @@
 .DiaryList {
   .DiaryTable {
+    .btn--submit {
+      background-color: #f9cf93;
+      border: none;
+      color: black;
+      height: 40px;
+    }
+    .btn-delete {
+      height: 40px;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .btn--submit,
     .span--message {
       position: absolute;
@@ -41,7 +54,7 @@
       }
       .row--description {
         height: 50px;
-        background-color: rgb(172, 224, 172);
+        background-color: #dbd0c0;
         .column {
           border-right: 1px solid black;
         }

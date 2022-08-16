@@ -1,12 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
-  const handleNavItem = (link) => {
-    navigate(`${link}`);
-  };
   const linkList = [
     {
       id: Math.random(),
@@ -38,12 +35,10 @@ const Header = () => {
       </div>
       <ul className="nav nav-tabs">
         {linkList.map((link) => (
-          <li
-            key={link.id}
-            className="nav-item"
-            onClick={handleNavItem.bind(null, link.address)}
-          >
-            <a className="nav-link">{(link, link.name)}</a>
+          <li key={link.id} className="nav-item">
+            <Link className="nav-link" to={link.address}>
+              {link.name}
+            </Link>
           </li>
         ))}
       </ul>
