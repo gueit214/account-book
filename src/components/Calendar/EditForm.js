@@ -22,7 +22,6 @@ const EditForm = (props) => {
     });
   };
 
-  console.log(props.thisDiary.id);
   // 제출 버튼 = putDiary 실행
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from "react";
 
-const useFetch = () => {
+const useFetch = (isStartPending = false) => {
   const [diaryList, setDiaryList] = useState([]);
   const [error, setError] = useState(null);
+  const [status, setStatus] = useState(isStartPending ? "Pending" : "");
 
   const handleDiary = useCallback(async ({ url, type, newDiary }) => {
     setError(null);
+    setStatus("Pending");
     try {
       const response = await fetch(url, {
         method: type,
@@ -14,6 +16,7 @@ const useFetch = () => {
           "content-type": "application/json",
         },
       });
+      setStatus("Completed!");
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
@@ -34,25 +37,25 @@ const useFetch = () => {
       }
     } catch (error) {
       setError(error.message);
+      setStatus("Somethins went wrong");
     }
   }, []);
 
-  const getDiary = useCallback(() => {
+  const getDiary = useCallback(async () => {
     handleDiary({
       type: "GET",
       url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
     });
-    console.log("getDiary 렌더링");
   }, [handleDiary]);
 
-  const deleteDiary = (id) => {
+  const deleteDiary = async (id) => {
     handleDiary({
       type: "DELETE",
       url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
     });
   };
 
-  const postDiary = (newDiary) => {
+  const postDiary = async (newDiary) => {
     handleDiary({
       url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
       type: "POST",
@@ -60,7 +63,7 @@ const useFetch = () => {
     });
   };
 
-  const putDiary = (id, thisDiary) => {
+  const putDiary = async (id, thisDiary) => {
     handleDiary({
       url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
       type: "PUT",
@@ -71,6 +74,7 @@ const useFetch = () => {
   return {
     diaryList,
     error,
+    status,
     getDiary,
     deleteDiary,
     postDiary,

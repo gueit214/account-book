@@ -1,28 +1,28 @@
 import "./App.scss";
-import Header from "./components/UI/Header";
-import Inner from "./components/UI/Inner";
 import useFetch from "./hooks/useFetch";
 import DiaryCalendar from "./pages/DiaryCalendar";
 import DiaryList from "./pages/DiaryList";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
+import Layout from "./components/UI/Layout";
 
 const App = () => {
-  const { diaryList, getDiary, deleteDiary } = useFetch();
-
+  const { diaryList, getDiary, status } = useFetch();
   useEffect(() => {
     getDiary();
   }, [getDiary]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/diarylist" />} />
-      <Route path="diarylist" element={<DiaryList diaryList={diaryList} />} />
-      <Route
-        path="/diarycalendar"
-        element={<DiaryCalendar diaryList={diaryList} />}
-      />
-    </Routes>
+    <Layout status={status}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/diarylist" />} />
+        <Route path="diarylist" element={<DiaryList diaryList={diaryList} />} />
+        <Route
+          path="/diarycalendar"
+          element={<DiaryCalendar diaryList={diaryList} />}
+        />
+      </Routes>
+    </Layout>
   );
 };
 

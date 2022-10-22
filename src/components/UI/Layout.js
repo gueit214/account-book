@@ -1,9 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Modal from "./Modal";
+
+const Inner = (props) => {
+  return <div className="Inner">{props.children}</div>;
+};
 
 const Header = () => {
-  const navigate = useNavigate();
   const linkList = [
     {
       id: Math.random(),
@@ -19,11 +22,6 @@ const Header = () => {
       id: Math.random(),
       name: "일지 달력",
       address: "/diarycalendar",
-    },
-    {
-      id: Math.random(),
-      name: "Link",
-      address: "/",
     },
   ];
 
@@ -46,4 +44,14 @@ const Header = () => {
   );
 };
 
-export default Header;
+const Layout = (props) => {
+  return (
+    <Inner>
+      <Header />
+      {props.status === "Pending" && <p className="loading ...">Loading</p>}
+      {props.children}
+    </Inner>
+  );
+};
+
+export default Layout;

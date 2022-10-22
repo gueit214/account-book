@@ -7,10 +7,10 @@ const DiaryAddItem = (props) => {
   // Input 세팅
   const [inputState, setInputState] = useState({
     date: props.fullTodayDate,
-    price: "",
-    content: "",
-    type: "",
-    note: "",
+    price: "3",
+    content: "3",
+    type: "데이트",
+    note: "3",
   });
   const handleInputState = useCallback((e) => {
     setInputState((state) => {
@@ -24,7 +24,7 @@ const DiaryAddItem = (props) => {
 
   // 제출 버튼
   const [ErrorMessage, setErrorMessage] = useState("");
-  const handleSubmitDiary = (e) => {
+  const handleSubmitDiary = async (e) => {
     e.preventDefault();
     if (
       inputState.price < 0 ||
@@ -47,21 +47,20 @@ const DiaryAddItem = (props) => {
         type: inputState.type,
         note: inputState.note,
       };
-      postDiary(newDiary);
+      await postDiary(newDiary);
       setInputState({
         date: props.fullTodayDate,
-        price: "",
-        content: "",
-        type: "",
-        note: "",
+        price: "3",
+        content: "3",
+        type: "데이트",
+        note: "3",
       });
     }
-    setTimeout(() => {
-      getDiary();
-    }, 500);
+    await getDiary();
   };
   return (
     <div className="rows row--add">
+      <div className="error-msg">{ErrorMessage}</div>
       <div className="column col--num">추가</div>
       <input
         className="column col--date"

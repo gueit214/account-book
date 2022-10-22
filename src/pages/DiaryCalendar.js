@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import Header from "../components/UI/Header";
-import Inner from "../components/UI/Inner";
 import Calendar from "../components/Calendar/Calendar";
 import "./DiaryCalendar.scss";
 
@@ -73,34 +71,29 @@ const DiaryCalendar = (props) => {
 
   return (
     <div className="DiaryCalendar">
-      <Inner>
-        <Header />
-      </Inner>
-      <Inner>
-        <div className="month">
-          <div className="prevMonth" onClick={handlePrevMonth}>
-            &lt;
-          </div>
-          <div className="thisMonth">{month + 1}월 달력</div>
-          <div className="nextMonth" onClick={handleNextMonth}>
-            &gt;
-          </div>
+      <div className="month">
+        <div className="prevMonth" onClick={handlePrevMonth}>
+          &lt;
         </div>
-        <div className="rows row--day">
-          <div className="column col--mon">월</div>
-          <div className="column col--tue">화</div>
-          <div className="column col--wed">수</div>
-          <div className="column col--thu">목</div>
-          <div className="column col--fri">금</div>
-          <div className="column col--sat">목</div>
-          <div className="column col--sun">일</div>
+        <div className="thisMonth">{month + 1}월 달력</div>
+        <div className="nextMonth" onClick={handleNextMonth}>
+          &gt;
         </div>
-        <Calendar
-          makeCalendar={makeCalendar}
-          diaryArr={diaryArr}
-          thisMonthDiary={thisMonthDiary}
-        />
-      </Inner>
+      </div>
+      <div className="rows row--day">
+        <div className="column col--mon">월</div>
+        <div className="column col--tue">화</div>
+        <div className="column col--wed">수</div>
+        <div className="column col--thu">목</div>
+        <div className="column col--fri">금</div>
+        <div className="column col--sat">목</div>
+        <div className="column col--sun">일</div>
+      </div>
+      <Calendar
+        makeCalendar={makeCalendar}
+        diaryArr={diaryArr}
+        thisMonthDiary={thisMonthDiary}
+      />
     </div>
   );
 };
