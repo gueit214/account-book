@@ -63,7 +63,6 @@ const DiaryTable = () => {
             id={diary.id}
           />
         ))}
-        {status}
       </div>
     </form>
   );

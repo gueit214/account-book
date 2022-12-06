@@ -44,20 +44,20 @@ const useFetch = (isStartPending = false) => {
   const getDiary = useCallback(async () => {
     handleDiary({
       type: "GET",
-      url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
+      url: "https://account-book-97485-default-rtdb.firebaseio.com/diaries.json",
     });
   }, [handleDiary]);
 
   const deleteDiary = async (id) => {
     handleDiary({
       type: "DELETE",
-      url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
+      url: `https://account-book-97485-default-rtdb.firebaseio.com/diaries/${id}.json`,
     });
   };
 
   const postDiary = async (newDiary) => {
     handleDiary({
-      url: "https://account-book-d2459-default-rtdb.firebaseio.com/diaries.json",
+      url: "https://account-book-97485-default-rtdb.firebaseio.com/diaries.json",
       type: "POST",
       newDiary: newDiary,
     });
@@ -65,7 +65,7 @@ const useFetch = (isStartPending = false) => {
 
   const putDiary = async (id, thisDiary) => {
     handleDiary({
-      url: `https://account-book-d2459-default-rtdb.firebaseio.com/diaries/${id}.json`,
+      url: `https://account-book-97485-default-rtdb.firebaseio.com/diaries/${id}.json`,
       type: "PUT",
       newDiary: thisDiary,
     });

@@ -20,13 +20,16 @@
 
 ## 👉 개발 기간
 
-- 2022.08.1 ~
+- 2022.08.1 ~ 8.16
+
+## 📷 시연 영상
+<img src="https://user-images.githubusercontent.com/62178788/205863145-ba590922-e74f-4304-97f9-3e694705af1e.gif"/>
 
 ## 🚀 프로젝트 주 차별 계획 및 회고
 
-| 👉 주차 |                            계획                             |    회고    |
-| :-----: | :---------------------------------------------------------: | :--------: |
-| 1 주차  | [:link:](https://github.com/gueit214/account-book/issues/1) | [:link:]() |
+| 👉 주차 |                            계획                             |
+| :-----: | :---------------------------------------------------------: |
+| 1 주차  | [:link:](https://github.com/gueit214/account-book/issues/1) | 
 
 ## 📚 Project Settings
 
@@ -107,28 +110,3 @@
 > firebase deploy
 ```
 
-<!--
-## 🔥 기술 스택 및 사용 라이브러리
-- React
-- Redux, Redux-Toolkit, Redux-Thunk
-- React Router Dom
-- React Helmet
-- React Use
-- Emotion, facepaint, react-responsive
-- Firebase, FireStore
-- Jest, React Testing Library, CodeceptJS
-- Webpack, Eslint, Babel
-- Immer
-- Moment, React-moment
-- draft-js, react-draft-wysiwyg
-- react-content-loader
-
-## 🦄 Demo Image
-
-#### 👉 DeskTop
-
-![desktop-demo]()
-
-#### 👉 Mobile
-
-<img src="" width="600px" > -->

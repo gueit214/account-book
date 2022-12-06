@@ -7,10 +7,10 @@ const DiaryAddItem = (props) => {
   // Input 세팅
   const [inputState, setInputState] = useState({
     date: props.fullTodayDate,
-    price: "3",
-    content: "3",
+    price: "",
+    content: "",
     type: "데이트",
-    note: "3",
+    note: "",
   });
   const handleInputState = useCallback((e) => {
     setInputState((state) => {
